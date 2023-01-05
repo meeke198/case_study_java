@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
+import customers.IdGenerator;
 
 public class Customer {
     private String id;
@@ -16,17 +17,26 @@ public class Customer {
     public Customer (){
 
     }
-    public Customer(String id){
-        this.id = id;
-    }
+//    public Customer(String id){
+//        this.id = id;
+//    }
 
-    public Customer (String name, String gender, int age,
+    public Customer (String id, String name, String gender, int age,
                      String address, String phoneNumber){
+        this.id = id;
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getPetId() {
+        return petId;
+    }
+
+    public void setPetId(int petId) {
+        this.petId = petId;
     }
 
     public String getId() {
@@ -67,7 +77,6 @@ public class Customer {
     public void setAge(byte newAge){
         this.age = newAge;
     }
-
     public void setPhoneNumber(String newPhoneNumber){
 
         this.phoneNumber = newPhoneNumber;
@@ -94,4 +103,6 @@ public class Customer {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
+
+
 }

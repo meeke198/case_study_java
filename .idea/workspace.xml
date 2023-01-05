@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82903925-4564-4f90-a3f1-e24fa9615e0d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/customers/IdGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customers/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customers/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customers/CustomerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customers/CustomerManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customers/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customers/CustomerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customers/IdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customers/IdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/owner/Owner.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/hienthu/Documents/codegym/CaseStudyHienNew/Case-study-Hien",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,7 +93,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672798473437</updated>
-      <workItem from="1672798475936" duration="14258000" />
+      <workItem from="1672798475936" duration="30132000" />
+      <workItem from="1672923081659" duration="2764000" />
     </task>
     <servers />
   </component>

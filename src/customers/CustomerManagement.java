@@ -1,64 +1,143 @@
 package customers;
-import customers.Customer;
-import java.util.List;
-import java.util.LinkedList;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public final class CustomerManagement<K,V> {
+public final class CustomerManagement<K, V> {
+    private static volatile CustomerManagement departmentManagement;
+    //tạo 1 biến static để lưu object duy nhất tạo ra bên trong lớp
     private static CustomerManagement CustomersManagement;
-    public static Map<String, Customer> CustomersList;
+    private Map<String, Customer> CustomersList;
     private static Scanner input = new Scanner(System.in);
+
+    //private constructor để không tạo object được từ bên ngoài lớp
     private CustomerManagement() {
         CustomersList = new HashMap<>();
-//        CustomersList.put("CS00120", new Customer("CS00120", "Luong","Gay kín",21, "21k Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456789"));
-//        CustomersList.put(2, new Customer(2, "Hieu","Queer",16, "21h Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456788"));
-//        CustomersList.put(3, new Customer(3, "Phong Xoan","Bisexual",11, "21f Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456787"));
-//        CustomersList.put(4, new Customer(4, "Hien","Female",32, "21e Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456786"));
-//        CustomersList.put(5, new Customer(5, "Vu","Male",15, "21d Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456787"));
-//        CustomersList.put(6, new Customer(6, "Tung",  "Male",15, "21c Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456786"));
-//        CustomersList.put(7, new Customer(7, "Minh",  "Queer",3, "21b Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456785"));
-//        CustomersList.put(8, new Customer(8, "Tran",  "Female",18, "21a Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456784"));
-//        CustomersList.put(9, new Customer(9, "Si Phong",  "Linh động",20, "21k Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "012345678"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Luong", "Gay kín", 21, "21k Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456789"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Hieu", "Queer", 16, "21h Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456788"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Phong Xoan", "Bisexual", 11, "21f Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456787"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Hien", "Female", 32, "21e Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456786"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Vu", "Male", 15, "21d Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456787"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Tung", "Male", 15, "21c Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456786"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Minh", "Queer", 3, "21b Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456785"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Tran", "Female", 18, "21a Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "0123456784"));
+        CustomersList.put("CS00120", new Customer("CS00120", "Si Phong", "Linh động", 20, "21k Nguyễn Văn Trỗi, P. 10, Phú Nhuận, Tp.HCM", "012345678"));
     }
+
+    //    do constructor đã private rồi nên không tạo được object bên ngoài
+//    nên phải tạo getCustomerManagement và new mới 1 instance phía bên trong
+    //tuy nhiên nếu để public hàm này thì bên ngoài có thể gọi và tạo mới được
+    //nên phải để static
     public static CustomerManagement getCustomerManagement() {
-        if (CustomersManagement == null) {
-            synchronized (CustomerManagement.class) {
-                if (CustomersManagement == null) {
-                    CustomersManagement = new CustomerManagement();
-                }
+
+        synchronized (CustomerManagement.class) {
+            if (CustomersManagement == null) {
+                CustomersManagement = new CustomerManagement();
             }
         }
         return CustomersManagement;
     }
-//    public void addMember() {
+
+public void add(String id, Customer newCustomer){
+        if(newCustomer != null){
+            CustomersList.put(id, newCustomer);
+        }
+}
+    public void remove(String id){
+        CustomersList.remove(id);
+    }
+
+    public Customer searchById(String id){
+          return CustomersList.get(id);
+    }
+
+    public StringBuilder searchByPhoneNumber(String phoneNumber){
+        StringBuilder result = new StringBuilder("");
+        for (Map.Entry<String, Customer> entry : CustomersList.entrySet()) {
+            String key =  entry.getKey();
+            Customer value =  entry.getValue();
+            if(phoneNumber.equals(value.getPhoneNumber())){
+                result.append(CustomersList.get(key).toString());
+            }
+        }
+        return result;
+    }
+
+    public StringBuilder researchByName( String name){
+        StringBuilder result = new StringBuilder("");
+        for(Map.Entry<String, Customer> entry : CustomersList.entrySet()){
+            String key = entry.getKey();
+            Customer value = entry.getValue();
+            if(name.equals(value.getName())){
+                result.append(CustomersList.get(key).toString());
+            }
+        }
+        return result;
+    }
+
+    public void editName(Customer customer, String name){
+        customer.setName(name);
+    }
+
+    public void editPhoneNumber(Customer customer, String phoneNumber){
+        customer.setPhoneNumber(phoneNumber);
+    }
+
+    public void edit(Customer customer, String name){
+        customer.setName(name);
+    }
+
+    public void editAddress(Customer customer, String address){
+        customer.setAddress(address);
+    }
+
+    public void editPetId(Customer customer, int petId){
+        customer.setPetId(petId);
+    }
+
+
+
+//    public void addNewCustomer() {
+//        IdGenerator generator = new IdGenerator();
+//        System.out.println("Please enter new customer's initial name");
+//        Scanner input = new Scanner(System.in);
+//        String prefixInput = input.nextLine();
+//        String suffixInput = generator.generateSuffix();
+//        generator.setPrefix(prefixInput);
+//        generator.init(prefixInput, suffixInput, 1);
+//        String id = generator.generate();
 //        System.out.println("Please enter new customer's information");
 //        System.out.print("Enter id: ");
 //        int id = input.nextInt();
 //        input.nextLine();
 //
+//        System.out.print("Enter gender: ");
+//        String gender = input.nextLine();
+//
+//        System.out.print("Enter customer's petId: ");
+//        String petId = input.nextLine();
 //
 //        System.out.print("Enter name: ");
 //        String name = input.nextLine();
 //
-//        System.out.print("Enter gender: ");
-//        String gender = input.nextLine();
+//        System.out.print("Enter age: ");
+//        int age = input.nextInt();
 //
-//        System.out.print("Enter position: ");
-//        String position = input.nextLine();
+//        System.out.print("Enter address: ");
+//        String address = input.nextLine();
 //
-//        System.out.print("Enter Department: ");
-//        String department = input.nextLine();
-
-//        Personnel obj = new Personnel(id, name, gender, position, department);
-//        listPersonnel.put(id, obj);
+//        System.out.print("Enter phone number: ");
+//        String phoneNumber = input.nextLine();
+//
+//        Customer newCustomer = new Customer(id, name, gender, age, address, phoneNumber);
+//        CustomersList.put(id, newCustomer);
 //        for (Department el : DepartmentManagement.getDepartmentManagement().listDepartment) {
 //            if (el.getName().equals(department)) {
 //                el.setAmount(el.getAmount() + 1);
 //            }
 //        }
-//    }
-
 }
+
+
 
