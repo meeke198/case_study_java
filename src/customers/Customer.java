@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Customer {
-    private int id;
+    private String id;
     private String gender;
     private int petId;
     private String name;
@@ -16,16 +16,25 @@ public class Customer {
     public Customer (){
 
     }
-
-
-    public Customer (int id, String name, String gender, int age,
-                     String address, String phoneNumber){
+    public Customer(String id){
         this.id = id;
+    }
+
+    public Customer (String name, String gender, int age,
+                     String address, String phoneNumber){
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getGender() {
