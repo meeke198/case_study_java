@@ -1,7 +1,7 @@
 package services;
 
 public class Service {
-    private int serviceId;
+    private String serviceId;
     private String serviceName;
     private float price;
     private String description;
@@ -24,7 +24,7 @@ public class Service {
         this.description = description;
     }
 
-    public int getServiceId(){
+    public String getServiceId(){
         return this.serviceId;
     }
     public String getServiceName(){
@@ -33,7 +33,7 @@ public class Service {
     public float getPrice(){
         return this.price;
     }
-    public void setServiceId(int newServiceId){
+    public void setServiceId(String newServiceId){
         this.serviceId = newServiceId;
     }
 

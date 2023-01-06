@@ -3,20 +3,41 @@ package pets;
 import java.util.LinkedList;
 
 public class Pet {
-    private int petId;
-    private int customerId;
-    private int serviceId;
+    private String petId;
+    private String name;
+    private String ownerId;
+    private String serviceId;
     private String description;
 
     private LinkedList<String> serviceHistory;
 
+    public void setPetId(String petId) {
+        this.petId = petId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
     public Pet (){
 
     }
-    public Pet (int petId, int customerId, int serviceId,
+    public Pet (String petId, String ownerId, String serviceId,
                 String description){
         this.petId = petId;
-        this.customerId = customerId;
+        this.ownerId = ownerId;
         this.serviceId = serviceId;
         this.description = description;
 
@@ -30,27 +51,27 @@ public class Pet {
         this.serviceHistory = serviceHistory;
     }
 
-    public int getPetId(){
+    public String getPetId(){
         return this.petId;
     }
-    public int getCustomerId(){
-        return this.customerId;
+    public String getCustomerId(){
+        return this.ownerId;
     }
-    public int getServiceId(){
+    public String getServiceId(){
         return this.serviceId;
     }
     public String getDescription(){
         return this.description;
     }
-    public void setpetId (int newPetId){
+    public void setpetId (String newPetId){
         this.petId = newPetId;
     }
 
-    public void setCustomerId(int newCustomerId){
-        this.customerId = newCustomerId;
+    public void setCustomerId(String newCustomerId){
+        this.ownerId = newCustomerId;
 
     }
-    public void setServiceId(int newServiceId){
+    public void setServiceId(String newServiceId){
 
         this.serviceId = newServiceId;
     }
@@ -64,7 +85,8 @@ public class Pet {
     public String toString() {
         return "Pet{" +
                 "petId=" + petId +
-                ", customerId=" + customerId +
+                ", name='" + name + '\'' +
+                ", ownerId='" + ownerId + '\'' +
                 ", serviceId=" + serviceId +
                 ", description='" + description + '\'' +
                 ", serviceHistory=" + serviceHistory +

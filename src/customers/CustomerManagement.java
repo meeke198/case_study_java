@@ -3,6 +3,7 @@ package customers;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import customers.IdGenerator;
 
 public final class CustomerManagement<K, V> {
     private static volatile CustomerManagement departmentManagement;
@@ -96,47 +97,6 @@ public void add(String id, Customer newCustomer){
         customer.setPetId(petId);
     }
 
-
-
-//    public void addNewCustomer() {
-//        IdGenerator generator = new IdGenerator();
-//        System.out.println("Please enter new customer's initial name");
-//        Scanner input = new Scanner(System.in);
-//        String prefixInput = input.nextLine();
-//        String suffixInput = generator.generateSuffix();
-//        generator.setPrefix(prefixInput);
-//        generator.init(prefixInput, suffixInput, 1);
-//        String id = generator.generate();
-//        System.out.println("Please enter new customer's information");
-//        System.out.print("Enter id: ");
-//        int id = input.nextInt();
-//        input.nextLine();
-//
-//        System.out.print("Enter gender: ");
-//        String gender = input.nextLine();
-//
-//        System.out.print("Enter customer's petId: ");
-//        String petId = input.nextLine();
-//
-//        System.out.print("Enter name: ");
-//        String name = input.nextLine();
-//
-//        System.out.print("Enter age: ");
-//        int age = input.nextInt();
-//
-//        System.out.print("Enter address: ");
-//        String address = input.nextLine();
-//
-//        System.out.print("Enter phone number: ");
-//        String phoneNumber = input.nextLine();
-//
-//        Customer newCustomer = new Customer(id, name, gender, age, address, phoneNumber);
-//        CustomersList.put(id, newCustomer);
-//        for (Department el : DepartmentManagement.getDepartmentManagement().listDepartment) {
-//            if (el.getName().equals(department)) {
-//                el.setAmount(el.getAmount() + 1);
-//            }
-//        }
 }
 
 

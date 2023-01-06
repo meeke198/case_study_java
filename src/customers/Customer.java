@@ -84,18 +84,12 @@ public class Customer {
     public void addPetId(int newPetId){
         this.petId = newPetId;
     }
-//    public List<Date> getDate() {
-//        return attendance;
-//    }
-//
-//    public void checkin(){
-//        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-//        this.attendance.add(new Date());
-//    }
+
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
+                "id='" + id + '\'' +
+                ", gender='" + gender + '\'' +
                 ", petId=" + petId +
                 ", name='" + name + '\'' +
                 ", age=" + age +

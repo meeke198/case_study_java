@@ -63,12 +63,7 @@ public class IdGenerator {
         Integer randomNumber = min + (int)(Math.random() * ((max - min) + 1));
         return randomNumber.toString();
     }
-    public int generateLastId() {
-        Integer min = 10; // Giá trị nhỏ nhất
-        Integer max = 99; // Giá trị lớn nhất
-        Integer randomNumber = min + (int)(Math.random() * ((max - min) + 1));
-        return randomNumber;
-    }
+
 
 //    public static void main(String[] args) {
 //        IdGenerator generator = new IdGenerator();
